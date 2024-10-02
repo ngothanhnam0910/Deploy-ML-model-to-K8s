@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-test-service
+spec:
+  selector:
+    app: fastapi-test-app
+  ports:
+    - protocol: "TCP"
+      port: 3000
+      targetPort: 5000 # container pod
+      nodePort: 32000
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-test-app
+spec:
+  selector:
+    matchLabels:
+      app: fastapi-test-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: fastapi-test-app
+    spec:
+      containers:
+        - name: fastapi-app
+          image: namntgem/fastapi-app
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
