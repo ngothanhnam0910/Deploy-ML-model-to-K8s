@@ -1,5 +1,8 @@
 image:
-  repository: quandvrobusto/house-price-prediction-api
-  tag: "0.0.1"
-  pullPolicy: Always
+  repository: namntgem/fastapi-app
+  tag: latest
+  pullPolicy: IfNotPresent
   
+port: 5000 # port of container
+type_service: NodePort
+nodeport: 32001 # can access through nodeport

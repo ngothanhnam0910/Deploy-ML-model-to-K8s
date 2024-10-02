@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
   labels:
     app: {{ .Release.Name }}
-  namespace: example
+  # namespace: default
 spec:
   replicas: 2
   selector:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: {{ .Release.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}" 
+          image: "{{ .Values.image.repository }}" 
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 30000
+            - containerPort: {{ .Values.port }}
