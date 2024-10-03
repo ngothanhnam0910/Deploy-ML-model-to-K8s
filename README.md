@@ -27,6 +27,6 @@ There are two ways to deploy the application to Kubernetes:
 - Method 1: Run the command ```kubectl apply -f deployment.yaml```
 - Method 2: Using Helm ```cd helm/fastapi-app && helm upgrade --install fastapi-app .```
 
-## Check application
+## Check application running
 - Check ip minikube: ```minicube ip```
-- Access address:  ```http://minicube_ip:32000/docs``` if using method 1 or ```http://minicube_ip:32001/docs```
+- Access address:  ```http://{minicube_ip}:32000/docs``` if using method 1 or ```http://{minicube_ip}:32001/docs``` for method 2
